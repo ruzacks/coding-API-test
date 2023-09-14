@@ -12,9 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('checklistitems', function (Blueprint $table) {
-            $table->id('checklistitem_id');
+            $table->id();
             $table->unsignedInteger('checklist_id');
-            $table->unsignedInteger('item_id');
+            $table->string('item_name');
+            $table->string('status')->default('active');
             $table->timestamps();
         });
     }
